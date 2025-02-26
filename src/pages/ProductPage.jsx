@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import products from "../data/products.json";
 import { useCart } from "../context/CartContext";
 
+
 const ProductPage = () => {
   const { id } = useParams();
   const { addToCart } = useCart();
