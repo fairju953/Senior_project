@@ -1,0 +1,66 @@
+.newsletter {
+    width: 100%;
+    height: auto;
+    background: linear-gradient(180deg, #ffe1e1, #fff);
+    padding: 60px 20px;
+    text-align: center;
+  }
+  
+  .newsletter h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .newsletter p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #555;
+  }
+  
+  .newsletter input {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 50px;
+    width: 300px;
+    font-size: 16px;
+    margin-right: 10px;
+    outline: none;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .newsletter button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px;
+    background-color: black;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .newsletter button:hover {
+    background-color: #444;
+  }
+  
+  .newsletter-success-popup {
+    margin-top: 20px;
+    background-color: #d4edda;
+    color: #155724;
+    padding: 15px 30px;
+    border-radius: 8px;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    animation: fadeInOut 2.5s ease-in-out;
+  }
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+  }
+  

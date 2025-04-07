@@ -1,0 +1,23 @@
+.countdown-banner {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  .countdown-banner img {
+    width: 100%;
+    display: block;
+  }
+  
+  .countdown-overlay {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+  }
+  

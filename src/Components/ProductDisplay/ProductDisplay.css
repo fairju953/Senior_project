@@ -1,0 +1,235 @@
+.productdisplay {
+    display: flex;
+    margin: 50px 170px;
+    gap: 50px;
+  }
+  
+  .productdisplay-left {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .productdisplay-img-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  
+  .productdisplay-img-list img {
+    height: 100px;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .productdisplay-img {
+    flex: 1;
+  }
+  
+  .productdisplay-main-img {
+    width: 500px;
+    height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .productdisplay-right {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 500px;
+  }
+  
+  .productdisplay-right h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .productdisplay-right-stars {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    color: #444;
+  }
+  
+  .productdisplay-right-prices {
+    display: flex;
+    gap: 25px;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .productdisplay-right-price-old {
+    text-decoration: line-through;
+    color: #888;
+  }
+  
+  .productdisplay-right-price-new {
+    color: #ff4141;
+  }
+  
+  .productdisplay-right-description {
+    margin-top: 10px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
+  .productdisplay-right-colors {
+    margin-top: 15px;
+  }
+  
+  .productdisplay-right-colors label {
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .productdisplay-stock {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .productdisplay-stock.out-of-stock {
+    color: red;
+    font-weight: bold;
+  }
+  
+  .productdisplay-right button {
+    padding: 14px 30px;
+    background-color: #ff4141;
+    color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    width: fit-content;
+  }
+  
+  .productdisplay-right button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .productdisplay-right-category {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .productdisplay-right-category span {
+    font-weight: 600;
+  }
+  
+  /* ✅ Notify section styles */
+  .notify-when-restocked {
+    margin-top: 10px;
+    padding: 12px 15px;
+    background-color: #d4edda;
+    color: #155724;
+    border-left: 5px solid #28a745;
+    font-size: 14px;
+    border-radius: 5px;
+    max-width: 280px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .notify-when-restocked input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: #28a745;
+    cursor: pointer;
+  }
+  
+  /* ✅ Modal styles */
+  .notify-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .notify-modal {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .notify-modal input[type="email"] {
+    padding: 10px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .notify-modal button {
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .notify-success {
+    font-size: 16px;
+    padding: 20px;
+    color: #155724;
+    background-color: #d4edda;
+    border-left: 5px solid #28a745;
+    border-radius: 5px;
+  }
+  .productdisplay-tabs {
+    margin: 60px 170px;
+    border-top: 1px solid #ddd;
+    padding-top: 30px;
+  }
+  
+  .tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .tabs button {
+    padding: 10px 20px;
+    background: #f5f5f5;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+  
+  .tabs button.active {
+    background: #fff;
+    border-bottom: 2px solid #ff4141;
+    color: #ff4141;
+  }
+  
+  .tab-content {
+    background: #fff;
+    border: 1px solid #eee;
+    padding: 20px;
+    border-radius: 5px;
+    color: #444;
+    line-height: 1.6;
+  }
+  
