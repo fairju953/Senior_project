@@ -6,13 +6,11 @@ const ShopContextProvider = (props) => {
   const [cartItems, setCartItems] = useState({});
   const [all_product, setAllProduct] = useState([]);
 
-  // Fetch products from your backend
   useEffect(() => {
-    fetch("http://localhost:3001/api/products") // adjust if needed
+    fetch("http://localhost:3001/api/products")
       .then((res) => res.json())
       .then((data) => {
         setAllProduct(data);
-        // Initialize cart with 0 quantities
         const initialCart = {};
         data.forEach((item) => (initialCart[item.id] = 0));
         setCartItems(initialCart);
@@ -20,13 +18,11 @@ const ShopContextProvider = (props) => {
   }, []);
 
   const addToCart = (itemId) => {
-    // Update cart quantity
     setCartItems((prev) => ({
       ...prev,
       [itemId]: prev[itemId] + 1,
     }));
 
-    // Update stock in products list
     setAllProduct((prev) =>
       prev.map((item) =>
         item.id === itemId && item.stock > 0
@@ -34,6 +30,31 @@ const ShopContextProvider = (props) => {
           : item
       )
     );
+
+    fetch("http://localhost:3001/api/update-stock", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: itemId, quantity: 1 }),
+    });
+  };
+
+  const removeFromCart = (itemId) => {
+    setCartItems((prev) => ({
+      ...prev,
+      [itemId]: prev[itemId] > 0 ? prev[itemId] - 1 : 0,
+    }));
+
+    setAllProduct((prev) =>
+      prev.map((item) =>
+        item.id === itemId ? { ...item, stock: item.stock + 1 } : item
+      )
+    );
+
+    fetch("http://localhost:3001/api/increase-stock", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: itemId, quantity: 1 }),
+    });
   };
 
   const getTotalCartItems = () => {
@@ -47,25 +68,12 @@ const ShopContextProvider = (props) => {
     }, 0);
   };
 
-  const removeFromCart = (itemId) => {
-    setCartItems((prev) => ({
-      ...prev,
-      [itemId]: prev[itemId] > 0 ? prev[itemId] - 1 : 0,
-    }));
-
-    // Restore stock when removing
-    setAllProduct((prev) =>
-      prev.map((item) =>
-        item.id === itemId ? { ...item, stock: item.stock + 1 } : item
-      )
-    );
-  };
-
   return (
     <ShopContext.Provider
       value={{
         all_product,
         cartItems,
+        setCartItems,
         addToCart,
         removeFromCart,
         getTotalCartItems,

@@ -30,7 +30,7 @@ app.get('/api/products', (req, res) => {
   });
 });
 
-// 📉 Update stock
+// 📉 Subtract stock when adding to cart
 app.post('/api/update-stock', (req, res) => {
   const { id, quantity } = req.body;
   const sql = 'UPDATE products SET stock = stock - ? WHERE id = ? AND stock >= ?';
@@ -40,18 +40,50 @@ app.post('/api/update-stock', (req, res) => {
   });
 });
 
+// 📈 Add stock when removing from cart
+app.post('/api/increase-stock', (req, res) => {
+  const { id, quantity } = req.body;
+  const sql = 'UPDATE products SET stock = stock + ? WHERE id = ?';
+  db.query(sql, [quantity, id], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ success: result.affectedRows > 0 });
+  });
+});
+
 // ⭐ Get reviews for a specific product
 app.get('/api/reviews/:productId', (req, res) => {
   const { productId } = req.params;
   const sql = 'SELECT reviewer_name, rating, review_text FROM reviews WHERE product_id = ?';
-
   db.query(sql, [productId], (err, results) => {
     if (err) {
       console.error('Error fetching reviews:', err);
       return res.status(500).json({ error: 'Database error' });
     }
-    // 💡 Always return an array, even if empty
     res.json(Array.isArray(results) ? results : []);
+  });
+});
+
+// 🆕 Register new user
+app.post('/api/register', (req, res) => {
+  const { name, email, password } = req.body;
+  const sql = 'INSERT INTO users (name, email, password) VALUES (?, ?, ?)';
+  db.query(sql, [name, email, password], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ success: true, userId: result.insertId });
+  });
+});
+
+// 🔐 Login user
+app.post('/api/login', (req, res) => {
+  const { email, password } = req.body;
+  const sql = 'SELECT * FROM users WHERE email = ? AND password = ?';
+  db.query(sql, [email, password], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    if (results.length > 0) {
+      res.json({ success: true, user: results[0] });
+    } else {
+      res.json({ success: false });
+    }
   });
 });
 

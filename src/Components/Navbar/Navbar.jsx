@@ -15,6 +15,7 @@ const Navbar = () => {
           <p className="nav-brand">StudyStock</p>
         </Link>
       </div>
+
       <ul className="nav-menu">
         <li onClick={() => setMenu("home")}>
           <Link style={{ textDecoration: 'none' }} to='/'>Home</Link>
@@ -33,10 +34,18 @@ const Navbar = () => {
           {menu === "supplies" ? <hr /> : null}
         </li>
       </ul>
-      <div className="nav-login-cart">
-        <Link to='/login'><button>Login</button></Link>
-        <Link to='/cart'><img src="/assets/cart_icon.png" alt="Cart" /></Link>
-        <div className="nav-cart-count">{getTotalCartItems()}</div>
+
+      <div className="nav-auth-cart">
+        <div className="nav-auth">
+          <Link to='/login'><button className="nav-btn">Login</button></Link>
+          <Link to='/signup'><button className="nav-btn">Sign Up</button></Link>
+        </div>
+        <div className="nav-cart">
+          <Link to='/cart' className="nav-cart-icon">
+            <img src="/assets/cart_icon.png" alt="Cart" />
+            <div className="nav-cart-count">{getTotalCartItems()}</div>
+          </Link>
+        </div>
       </div>
     </div>
   );

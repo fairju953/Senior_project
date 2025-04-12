@@ -1,7 +1,10 @@
 import React from 'react';
 import './Footer.css';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className='footer'>
       <div className="footer-logo">
@@ -9,11 +12,9 @@ const Footer = () => {
         <p>StudyStock</p>
       </div>
       <ul className="footer-links">
-        <li>Company</li>
-        <li>Products</li>
-        <li>Offices</li>
-        <li>About</li>
-        <li>Contact</li>
+        <p onClick={() => navigate('/supplies')}>Products</p>
+        <p onClick={() => navigate('/about')}>About</p>
+        <p onClick={() => navigate('/contact')}>Contact</p>
       </ul>
       <div className="footer-social-icon">
         <div className="footer-icons-container">

@@ -1,0 +1,130 @@
+.checkout-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .checkout-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+  }
+  
+  .checkout-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .checkout-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .checkout-item h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+  }
+  
+  .checkout-item p {
+    margin: 2px 0;
+    font-size: 14px;
+  }
+  
+  .shipping-options {
+    margin-top: 30px;
+    padding: 20px;
+    background: #fdfdfd;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .shipping-options h4 {
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .shipping-options label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  
+  .shipping-options input[type="radio"] {
+    margin-right: 8px;
+  }
+  
+  .checkout-form {
+    margin-top: 30px;
+    display: grid;
+    gap: 15px;
+  }
+  
+  .checkout-form input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  /* NEW breakdown layout */
+  .checkout-summary {
+    margin-top: 40px;
+    padding: 20px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .checkout-summary .row {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+  }
+  
+  .checkout-summary .row.total {
+    font-weight: 700;
+    font-size: 20px;
+    margin-top: 20px;
+    color: #111;
+  }
+  
+  .checkout-summary .row.total span:last-child {
+    color: #ff4040;
+  }
+  
+  .place-order-btn {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 30px;
+    background-color: #ff4040;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .place-order-btn:hover {
+    background-color: #d93434;
+  }
+  

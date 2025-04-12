@@ -1,11 +1,13 @@
 import React, { useContext, useState } from 'react';
 import './CartItems.css';
 import { ShopContext } from '../../Context/ShopContext';
+import { useNavigate } from 'react-router-dom';
 
 const CartItems = () => {
   const { getTotalCartAmount, all_product, cartItems, removeFromCart } = useContext(ShopContext);
   const [promoCode, setPromoCode] = useState('');
   const [isPromoApplied, setIsPromoApplied] = useState(false);
+  const navigate = useNavigate();
 
   const subtotal = getTotalCartAmount();
   const discount = isPromoApplied ? subtotal * 0.1 : 0; // 10% off
@@ -26,7 +28,7 @@ const CartItems = () => {
         <p>Products</p>
         <p>Title</p>
         <p>Price</p>
-        <p>Quality</p>
+        <p>Quantity</p>
         <p>Total</p>
         <p>Remove</p>
       </div>
@@ -40,7 +42,7 @@ const CartItems = () => {
                 <p>{e.name}</p>
                 <p>${e.new_price}</p>
                 <button className="cartitems-quantity">{cartItems[e.id]}</button>
-                <p>${e.new_price * cartItems[e.id]}</p>
+                <p>${(e.new_price * cartItems[e.id]).toFixed(2)}</p>
                 <img
                   className="cartitems-remove-icon"
                   src="/assets/cart_cross_icon.png"
@@ -80,7 +82,7 @@ const CartItems = () => {
               <h3>${total.toFixed(2)}</h3>
             </div>
           </div>
-          <button>PROCEED TO CHECKOUT</button>
+          <button onClick={() => navigate('/checkout')}>PROCEED TO CHECKOUT</button>
         </div>
 
         <div className="cartitems-promocode">
